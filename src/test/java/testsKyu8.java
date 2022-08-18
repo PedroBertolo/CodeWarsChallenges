@@ -19,7 +19,7 @@ public class testsKyu8 {
 
     @Test
     @DisplayName("SumWithoutHighestLowest - sum")
-    public void BasicTests() {
+    public void testOfSumWithoutHighestLowest() {
         assertEquals(26, SumWithoutHighestLowest.sum(new int[] { 6, 2, 1, 8, 10, 10}));
     }
 
