@@ -1,6 +1,4 @@
-import kyu7.HighestAndLowest;
-import kyu7.ReverseWords;
-import kyu7.StringEndsWith;
+import kyu7.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -48,4 +46,33 @@ public class testsKyu7 {
         assertEquals("elbuod  decaps  sdrow", ReverseWords.reverseWords("double  spaced  words"));
     }
 
+    @Test
+    @DisplayName("Mumbling - accum")
+    public void test() {
+        System.out.println("Fixed Tests accum");
+        testing(Mumbling.accum("ZpglnRxqenU"), "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu");
+        testing(Mumbling.accum("NyffsGeyylB"), "N-Yy-Fff-Ffff-Sssss-Gggggg-Eeeeeee-Yyyyyyyy-Yyyyyyyyy-Llllllllll-Bbbbbbbbbbb");
+        testing(Mumbling.accum("MjtkuBovqrU"), "M-Jj-Ttt-Kkkk-Uuuuu-Bbbbbb-Ooooooo-Vvvvvvvv-Qqqqqqqqq-Rrrrrrrrrr-Uuuuuuuuuuu");
+        testing(Mumbling.accum("EvidjUnokmM"), "E-Vv-Iii-Dddd-Jjjjj-Uuuuuu-Nnnnnnn-Oooooooo-Kkkkkkkkk-Mmmmmmmmmm-Mmmmmmmmmmm");
+        testing(Mumbling.accum("HbideVbxncC"), "H-Bb-Iii-Dddd-Eeeee-Vvvvvv-Bbbbbbb-Xxxxxxxx-Nnnnnnnnn-Cccccccccc-Ccccccccccc");
+    }
+
+    private static void testing(String actual, String expected) {
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Switcheroo - switcheroo")
+    public void testSomething() {
+        assertEquals("abc", Switcheroo.switcheroo("bac"));
+        assertEquals("ccc", Switcheroo.switcheroo("ccc"));
+        assertEquals("aaabcccbaaa", Switcheroo.switcheroo("bbbacccabbb"));
+    }
+
+    @Test
+    @DisplayName("IsThisATriangle - isTriangle")
+    public void testIfIsATrinagle() {
+        assertEquals(true, IsThisATriangle.isTriangle(1, 2, 2));
+        assertEquals(false, IsThisATriangle.isTriangle(7, 2, 2));
+    }
 }
