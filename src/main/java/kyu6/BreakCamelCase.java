@@ -12,9 +12,6 @@ public class BreakCamelCase {
         String[] splittedInput = input.split("(?=[A-Z]+)");
         StringBuilder stringBuilder = new StringBuilder();
 
-
-//        return text.replaceAll(").trim();
-
         int i = 0;
         for (String string : splittedInput) {
             if (string.isEmpty()){
