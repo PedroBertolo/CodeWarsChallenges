@@ -49,7 +49,7 @@ public class testsKyu6 {
     @Test
     @DisplayName("DashatizeIt - dashatize")
     public void testWeird() {
-//        assertEquals("0", DashatizeIt.dashatize(0));
+        assertEquals("0", DashatizeIt.dashatize(0));
         assertEquals("1", DashatizeIt.dashatize(-1));
         assertEquals("28-3-6-9", DashatizeIt.dashatize(-28369));
     }
