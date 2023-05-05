@@ -2,6 +2,9 @@ import kyu6.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class testsKyu6 {
@@ -32,7 +35,7 @@ public class testsKyu6 {
     @Test
     @DisplayName("FindMissingLetter - findMissingLetter")
     public void exampleTests() {
-      assertEquals('e', FindMissingLetter.findMissingLetter(new char[]{'a', 'b', 'c', 'd', 'f'}));
+        assertEquals('e', FindMissingLetter.findMissingLetter(new char[]{'a', 'b', 'c', 'd', 'f'}));
         assertEquals('P', FindMissingLetter.findMissingLetter(new char[]{'O', 'Q', 'R', 'S'}));
     }
 
@@ -62,6 +65,61 @@ public class testsKyu6 {
         assertEquals("1-1-1-1-1-1-1-1-1-1", DashatizeIt.dashatize(-1111111111));
     }
 
+    @Test
+    @DisplayName("Meeting - meeting")
+    public void test() {
+        testing("Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:Arno;Madison:STAN;Alex:Cornwell;Lewis:Kern;Megan:Stan;Alex:Korn",
+                "(ARNO, ANN)(BELL, JOHN)(CORNWELL, ALEX)(DORNY, ABBA)(KERN, LEWIS)(KORN, ALEX)(META, GRACE)(SCHWARZ, VICTORIA)(STAN, MADISON)(STAN, MEGAN)(WAHL, ALEXIS)");
+        testing("John:Gates;Michael:Wahl;Megan:Bell;Paul:Dorries;James:Dorny;Lewis:Steve;Alex:Meta;Elizabeth:Russel;Anna:Korn;Ann:Kern;Amber:Cornwell",
+                "(BELL, MEGAN)(CORNWELL, AMBER)(DORNY, JAMES)(DORRIES, PAUL)(GATES, JOHN)(KERN, ANN)(KORN, ANNA)(META, ALEX)(RUSSEL, ELIZABETH)(STEVE, LEWIS)(WAHL, MICHAEL)");
+        testing("Alex:Arno;Alissa:Cornwell;Sarah:Bell;Andrew:Dorries;Ann:Kern;Haley:Arno;Paul:Dorny;Madison:Kern",
+                "(ARNO, ALEX)(ARNO, HALEY)(BELL, SARAH)(CORNWELL, ALISSA)(DORNY, PAUL)(DORRIES, ANDREW)(KERN, ANN)(KERN, MADISON)");
+    }
+
+    @DisplayName("Meeting - meeting")
+    private void testing(String s, String exp) {
+        System.out.println("Testing:\n" + s);
+        String ans = Meeting.meeting(s);
+        System.out.println("Actual: " + ans);
+        System.out.println("Expect: " + exp);
+        System.out.println(ans.equals(exp));
+        assertEquals(exp, ans);
+    }
+
+    @Test
+    @DisplayName("StringSplit - solution")
+    public void testEvenString() {
+        String s = "abcdef";
+        String s1 = "HelloWorld";
+        assertEquals("[ab, cd, ef]", Arrays.toString(StringSplit.solution(s)));
+        assertEquals("[He, ll, oW, or, ld]", Arrays.toString(StringSplit.solution(s1)));
+    }
+
+    @Test
+    @DisplayName("StringSplit - solution")
+    public void testOddString() {
+        String s = "abcde";
+        String s1 = "LovePizza";
+        assertEquals("[ab, cd, e_]", Arrays.toString(StringSplit.solution(s)));
+        assertEquals("[Lo, ve, Pi, zz, a_]", Arrays.toString(StringSplit.solution(s1)));
+    }
+
+    @Test
+    @DisplayName("CamelCaseMethod - camelCase")
+    public void testTwoWords() {
+        assertEquals("TestCase", CamelCaseMethod.camelCase("test case"));
+    }
+
+    @Test
+    @DisplayName("CamelCaseMethod - camelCase")
+    public void testThreeWords() {
+        assertEquals("CamelCaseMethod", CamelCaseMethod.camelCase("camel case method"));
+        assertEquals("CamelCaseWord", CamelCaseMethod.camelCase(" camel case word"));
+        assertEquals("Z", CamelCaseMethod.camelCase("z"));
+        assertEquals("AbC", CamelCaseMethod.camelCase("ab  c"));
+        assertEquals("", CamelCaseMethod.camelCase(""));
+
+    }
 //    @Test
 //    @DisplayName("CountingDuplicates - duplicateCount")
 //    public void abcdeReturnsZero() {

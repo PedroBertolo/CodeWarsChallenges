@@ -34,7 +34,6 @@ public class DashatizeIt {
         String toReturn = stringBuilder.toString();
         String[] split = stringBuilder.toString().split("");
 
-
         if (split[0].equals("-")) {
             toReturn = toReturn.substring(1);
         }
