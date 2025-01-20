@@ -1,6 +1,7 @@
 import kyu8.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -36,12 +37,14 @@ public class testsKyu8 {
         assertEquals(true, TestScoreComparison.betterThanAverage(new int[]{12, 23, 34, 45, 56, 67, 78, 89, 90}, 69));
         assertEquals(false, TestScoreComparison.betterThanAverage(new int[]{100, 90}, 11));
     }
+
     @Test
     @DisplayName("GrasshopperPersonalizedMessage - greet")
     public void greetTest() {
         assertEquals("Hello boss", GrasshopperPersonalizedMessage.greet("Daniel", "Daniel"));
         assertEquals("Hello guest", GrasshopperPersonalizedMessage.greet("Greg", "Daniel"));
     }
+
     @Test
     @DisplayName("FakeBinary - fakeBin")
     public void fakeBinaryTest() {
@@ -49,6 +52,7 @@ public class testsKyu8 {
         assertEquals("101000111101101", FakeBinary.fakeBin("509321967506747"));
         assertEquals("011011110000101010000011011", FakeBinary.fakeBin("366058562030849490134388085"));
     }
+
     @Test
     @DisplayName("EvenOrOdd - even_or_odd")
     public void testEvenOrOdd() {
@@ -57,4 +61,28 @@ public class testsKyu8 {
         assertEquals("Even", EvenOrOdd.even_or_odd(0));
         assertEquals("Odd", EvenOrOdd.even_or_odd(-1));
     }
+
+
+    @DisplayName("SheepCounter - Counting sheep...")
+    private static void doTest(Boolean[] input, int expected) {
+        SheepCounter counter = new SheepCounter();
+        String message = String.format("for array: %s\n", Arrays.toString(input));
+        int actual = counter.countSheeps(input);
+        assertEquals(expected, actual, message);
+    }
+
+    @Test
+    @DisplayName("SheepCounter - Counting sheep...")
+    void sampleTests() {
+        doTest(new Boolean[]{
+                true, true, true, false, true, true, true, true, true, false, true,
+                false, true, false, false, true, true, true, true, true, false,
+                false, true, true
+        }, 17);
+        doTest(new Boolean[]{false, true, true}, 2);
+        doTest(new Boolean[]{}, 0);
+        doTest(new Boolean[]{false, null, true, false, null, null, true}, 2);
+        doTest(new Boolean[]{false, null, null}, 0);
+    }
+
 }

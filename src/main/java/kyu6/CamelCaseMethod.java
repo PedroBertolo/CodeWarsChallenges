@@ -7,8 +7,6 @@ package kyu6;
 //        camelCase("hello case"); // => "HelloCase"
 //        camelCase("camel case word"); // => "CamelCaseWord"
 
-import com.sun.deploy.util.StringUtils;
-
 public class CamelCaseMethod {
 
     public static String camelCase(String str) {

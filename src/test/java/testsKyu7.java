@@ -75,4 +75,16 @@ public class testsKyu7 {
         assertEquals(true, IsThisATriangle.isTriangle(1, 2, 2));
         assertEquals(false, IsThisATriangle.isTriangle(7, 2, 2));
     }
+
+
+    @Test
+    @DisplayName("GrowthOfPopulation - nbYear")
+    public void test1() {
+        System.out.println("Fixed Tests: nbYear");
+        assertEquals(GrowthOfPopulation.nbYear(1500, 5, 100, 5000), 15);
+        assertEquals(GrowthOfPopulation.nbYear(1500000, 2.5, 10000, 2000000), 10);
+        assertEquals(GrowthOfPopulation.nbYear(1500000, 0.25, 1000, 2000000), 94);
+    }
+
+
 }
