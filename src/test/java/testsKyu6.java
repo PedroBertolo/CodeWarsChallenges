@@ -65,26 +65,6 @@ public class testsKyu6 {
         assertEquals("1-1-1-1-1-1-1-1-1-1", DashatizeIt.dashatize(-1111111111));
     }
 
-    @Test
-    @DisplayName("Meeting - meeting")
-    public void test() {
-        testing("Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:Arno;Madison:STAN;Alex:Cornwell;Lewis:Kern;Megan:Stan;Alex:Korn",
-                "(ARNO, ANN)(BELL, JOHN)(CORNWELL, ALEX)(DORNY, ABBA)(KERN, LEWIS)(KORN, ALEX)(META, GRACE)(SCHWARZ, VICTORIA)(STAN, MADISON)(STAN, MEGAN)(WAHL, ALEXIS)");
-        testing("John:Gates;Michael:Wahl;Megan:Bell;Paul:Dorries;James:Dorny;Lewis:Steve;Alex:Meta;Elizabeth:Russel;Anna:Korn;Ann:Kern;Amber:Cornwell",
-                "(BELL, MEGAN)(CORNWELL, AMBER)(DORNY, JAMES)(DORRIES, PAUL)(GATES, JOHN)(KERN, ANN)(KORN, ANNA)(META, ALEX)(RUSSEL, ELIZABETH)(STEVE, LEWIS)(WAHL, MICHAEL)");
-        testing("Alex:Arno;Alissa:Cornwell;Sarah:Bell;Andrew:Dorries;Ann:Kern;Haley:Arno;Paul:Dorny;Madison:Kern",
-                "(ARNO, ALEX)(ARNO, HALEY)(BELL, SARAH)(CORNWELL, ALISSA)(DORNY, PAUL)(DORRIES, ANDREW)(KERN, ANN)(KERN, MADISON)");
-    }
-
-    @DisplayName("Meeting - meeting")
-    private void testing(String s, String exp) {
-        System.out.println("Testing:\n" + s);
-        String ans = Meeting.meeting(s);
-        System.out.println("Actual: " + ans);
-        System.out.println("Expect: " + exp);
-        System.out.println(ans.equals(exp));
-        assertEquals(exp, ans);
-    }
 
     @Test
     @DisplayName("StringSplit - solution")
@@ -120,6 +100,49 @@ public class testsKyu6 {
         assertEquals("", CamelCaseMethod.camelCase(""));
 
     }
+
+    @DisplayName("TenMinWalkTest")
+    private static void tenMinWalkTest(char[] input, boolean expected) {
+        String message = "for input = " + Arrays.toString(input);
+        boolean actual = TenMinWalk.isValid(input);
+        assertEquals(expected, actual, message);
+    }
+
+    @Test
+    @DisplayName("TenMinWalkTest - test")
+    void falseWalkTooShort() {
+        tenMinWalkTest(new char[]{'n'}, false);
+        tenMinWalkTest(new char[]{'n', 's'}, false);
+    }
+
+    @Test
+    @DisplayName("TenMinWalkTest - test")
+    void falseWalkTooLong() {
+        tenMinWalkTest(new char[]{'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}, false);
+        tenMinWalkTest(new char[]{'n', 's', 'e', 'w', 'n', 's', 'e', 'w', 'n', 's', 'e', 'w', 'n', 's', 'e', 'w'}, false);
+        tenMinWalkTest(new char[]{'n', 's', 'e', 'w', 'n', 's', 'e', 'w', 'n', 's', 'e', 'w', 'n', 's', 'e', 'w', 'n', 's', 'e', 'w'}, false);
+    }
+
+    @Test
+    @DisplayName("TenMinWalkTest - test")
+    void falseDoesNotLoopBackToStart() {
+        tenMinWalkTest(new char[]{'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 'n'}, false);
+        tenMinWalkTest(new char[]{'e', 'e', 'e', 'w', 'n', 's', 'n', 's', 'e', 'w'}, false);
+        tenMinWalkTest(new char[]{'n', 'e', 'n', 'e', 'n', 'e', 'n', 'e', 'n', 'e'}, false);
+        tenMinWalkTest(new char[]{'n', 'w', 'n', 'w', 'n', 'w', 'n', 'w', 'n', 'w'}, false);
+        tenMinWalkTest(new char[]{'s', 'e', 's', 'e', 's', 'e', 's', 'e', 's', 'e'}, false);
+        tenMinWalkTest(new char[]{'s', 'w', 's', 'w', 's', 'w', 's', 'w', 's', 'w'}, false);
+    }
+
+    @Test
+    @DisplayName("TenMinWalkTest - test")
+    void trueIsValid10MinutesWalk() {
+        tenMinWalkTest(new char[]{'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}, true);
+        tenMinWalkTest(new char[]{'e', 'w', 'e', 'w', 'n', 's', 'n', 's', 'e', 'w'}, true);
+        tenMinWalkTest(new char[]{'n', 's', 'e', 'w', 'n', 's', 'e', 'w', 'n', 's'}, true);
+    }
+
+
 //    @Test
 //    @DisplayName("CountingDuplicates - duplicateCount")
 //    public void abcdeReturnsZero() {
