@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class testsKyu6 {
@@ -15,6 +14,8 @@ public class testsKyu6 {
         assertEquals("(123) 456-7890", CreatePhoneNumber.createPhoneNumber(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}));
     }
 
+    //    ----------------------- SEPARATOR -----------------------
+
     @Test
     @DisplayName("BreakCamelCase - camelCase")
     public void tests() {
@@ -23,6 +24,7 @@ public class testsKyu6 {
         assertEquals("camelcasingtest", BreakCamelCase.camelCase("camelcasingtest"));
     }
 
+    //    ----------------------- SEPARATOR -----------------------
 
     @Test
     @DisplayName("BuildTower - towerBuilder")
@@ -32,6 +34,8 @@ public class testsKyu6 {
         assertEquals(String.join(",", "  *  ", " *** ", "*****"), String.join(",", BuildTower.towerBuilder(3)));
     }
 
+    //    ----------------------- SEPARATOR -----------------------
+
     @Test
     @DisplayName("FindMissingLetter - findMissingLetter")
     public void exampleTests() {
@@ -39,6 +43,7 @@ public class testsKyu6 {
         assertEquals('P', FindMissingLetter.findMissingLetter(new char[]{'O', 'Q', 'R', 'S'}));
     }
 
+    //    ----------------------- SEPARATOR -----------------------
 
     @Test
     @DisplayName("DashatizeIt - dashatize")
@@ -65,6 +70,7 @@ public class testsKyu6 {
         assertEquals("1-1-1-1-1-1-1-1-1-1", DashatizeIt.dashatize(-1111111111));
     }
 
+//    ----------------------- SEPARATOR -----------------------
 
     @Test
     @DisplayName("StringSplit - solution")
@@ -84,6 +90,8 @@ public class testsKyu6 {
         assertEquals("[Lo, ve, Pi, zz, a_]", Arrays.toString(StringSplit.solution(s1)));
     }
 
+    //    ----------------------- SEPARATOR -----------------------
+
     @Test
     @DisplayName("CamelCaseMethod - camelCase")
     public void testTwoWords() {
@@ -98,8 +106,9 @@ public class testsKyu6 {
         assertEquals("Z", CamelCaseMethod.camelCase("z"));
         assertEquals("AbC", CamelCaseMethod.camelCase("ab  c"));
         assertEquals("", CamelCaseMethod.camelCase(""));
-
     }
+
+    //    ----------------------- SEPARATOR -----------------------
 
     @DisplayName("TenMinWalkTest")
     private static void tenMinWalkTest(char[] input, boolean expected) {
@@ -142,39 +151,52 @@ public class testsKyu6 {
         tenMinWalkTest(new char[]{'n', 's', 'e', 'w', 'n', 's', 'e', 'w', 'n', 's'}, true);
     }
 
+    //    ----------------------- SEPARATOR -----------------------
 
-//    @Test
-//    @DisplayName("CountingDuplicates - duplicateCount")
-//    public void abcdeReturnsZero() {
-//        assertEquals(0, CountingDuplicates.duplicateCount("abcde"));
-//    }
-//
-//    @Test
-//    @DisplayName("CountingDuplicates - duplicateCount")
-//    public void abcdeaReturnsOne() {
-//        assertEquals(1, CountingDuplicates.duplicateCount("abcdea"));
-//    }
-//
-//    @Test
-//    @DisplayName("CountingDuplicates - duplicateCount")
-//    public void indivisibilityReturnsOne() {
-//        assertEquals(1, CountingDuplicates.duplicateCount("indivisibility"));
-//    }
-//
-//    @Test
-//    @DisplayName("CountingDuplicates - duplicateCount")
-//    public void reallyLongStringContainingDuplicatesReturnsThree() {
-//        String testThousandA = new String(new char[1000]).replace('\0', 'a');
-//        String testHundredB = new String(new char[100]).replace('\0', 'b');
-//        String testTenC = new String(new char[10]).replace('\0', 'c');
-//        String test1CapitalA = new String(new char[1]).replace('\0', 'A');
-//        String test1d = new String(new char[1]).replace('\0', 'd');
-//        String test = test1d + test1CapitalA + testTenC +
-//                testHundredB + testThousandA;
-//
-//
-//        assertEquals(3, CountingDuplicates.duplicateCount(test));
-//    }
+    @Test
+    @DisplayName("CountingDuplicates - duplicateCount")
+    public void abcdeReturnsZero() {
+        assertEquals(0, CountingDuplicates.duplicateCount("abcde"));
+    }
+
+    @Test
+    @DisplayName("CountingDuplicates - duplicateCount")
+    public void abcdeaReturnsOne() {
+        assertEquals(1, CountingDuplicates.duplicateCount("abcdea"));
+    }
+
+    @Test
+    @DisplayName("CountingDuplicates - duplicateCount")
+    public void indivisibilityReturnsOne() {
+        assertEquals(1, CountingDuplicates.duplicateCount("indivisibility"));
+    }
+
+    @Test
+    @DisplayName("CountingDuplicates - duplicateCount")
+    public void reallyLongStringContainingDuplicatesReturnsThree() {
+        String testThousandA = new String(new char[1000]).replace('\0', 'a');
+        String testHundredB = new String(new char[100]).replace('\0', 'b');
+        String testTenC = new String(new char[10]).replace('\0', 'c');
+        String test1CapitalA = new String(new char[1]).replace('\0', 'A');
+        String test1d = new String(new char[1]).replace('\0', 'd');
+        String test = test1d + test1CapitalA + testTenC +
+                testHundredB + testThousandA;
+        assertEquals(3, CountingDuplicates.duplicateCount(test));
+    }
+
+    //    ----------------------- SEPARATOR -----------------------
+
+    @Test
+    @DisplayName("BouncingBall - bouncingBall")
+    public void test1() {
+        assertEquals(3, BouncingBall.bouncingBall(3.0, 0.66, 1.5));
+    }
+
+    @Test
+    @DisplayName("BouncingBall - bouncingBall")
+    public void test2() {
+        assertEquals(15, BouncingBall.bouncingBall(30.0, 0.66, 1.5));
+    }
 
 
 }
