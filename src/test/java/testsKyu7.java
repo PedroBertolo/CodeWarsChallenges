@@ -2,15 +2,21 @@ import kyu7.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Arrays;
+import java.util.Random;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class testsKyu7 {
+
     @Test
     @DisplayName("HighestAndLowest - highAndLow")
     public void testOfHighestLowest() {
         assertEquals("42 -9", HighestAndLowest.highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
         assertEquals("3 1", HighestAndLowest.highAndLow("1 2 3"));
     }
+
+    //    ----------------------- SEPARATOR -----------------------
 
     @Test
     @DisplayName("StringEndsWith - solution")
@@ -37,6 +43,8 @@ public class testsKyu7 {
         assertEquals(expected, result, "Expected solution(\"" + str + "\", \"" + ending + "\") to return " + expected);
     }
 
+    //    ----------------------- SEPARATOR -----------------------
+
     @Test
     @DisplayName("ReverseWords - reverseWords")
     public void testOfReverseWords() {
@@ -45,6 +53,8 @@ public class testsKyu7 {
         assertEquals("a b c d", ReverseWords.reverseWords("a b c d"));
         assertEquals("elbuod  decaps  sdrow", ReverseWords.reverseWords("double  spaced  words"));
     }
+
+    //    ----------------------- SEPARATOR -----------------------
 
     @Test
     @DisplayName("Mumbling - accum")
@@ -61,6 +71,8 @@ public class testsKyu7 {
         assertEquals(expected, actual);
     }
 
+    //    ----------------------- SEPARATOR -----------------------
+
     @Test
     @DisplayName("Switcheroo - switcheroo")
     public void testSomething() {
@@ -69,6 +81,8 @@ public class testsKyu7 {
         assertEquals("aaabcccbaaa", Switcheroo.switcheroo("bbbacccabbb"));
     }
 
+    //    ----------------------- SEPARATOR -----------------------
+
     @Test
     @DisplayName("IsThisATriangle - isTriangle")
     public void testIfIsATrinagle() {
@@ -76,6 +90,7 @@ public class testsKyu7 {
         assertEquals(false, IsThisATriangle.isTriangle(7, 2, 2));
     }
 
+//    ----------------------- SEPARATOR -----------------------
 
     @Test
     @DisplayName("GrowthOfPopulation - nbYear")
@@ -86,5 +101,68 @@ public class testsKyu7 {
         assertEquals(GrowthOfPopulation.nbYear(1500000, 0.25, 1000, 2000000), 94);
     }
 
+    //    ----------------------- SEPARATOR -----------------------
+
+    @Test
+    @DisplayName("LineNumbering - number")
+    public void basicTests() {
+        assertIterableEquals(Arrays.asList(), LineNumbering.number(Arrays.asList()));
+        assertIterableEquals(Arrays.asList("1: a", "2: b", "3: c"), LineNumbering.number(Arrays.asList("a", "b", "c")));
+        assertIterableEquals(Arrays.asList("1: ", "2: ", "3: ", "4: ", "5: "), LineNumbering.number(Arrays.asList("", "", "", "", "")));
+    }
+
+    //    ----------------------- SEPARATOR -----------------------
+
+    @Test
+    @DisplayName("MinMax - minMax")
+    public void testExampleCases() {
+        assertArrayEquals(new int[]{1, 5}, MinMax.minMax(new int[]{1, 2, 3, 4, 5}));
+        assertArrayEquals(new int[]{5, 2334454}, MinMax.minMax(new int[]{2334454, 5}));
+        assertArrayEquals(new int[]{1, 1}, MinMax.minMax(new int[]{1}));
+    }
+
+    @Test
+    @DisplayName("MinMax - minMax")
+    public void minMaxRandomTest() {
+        Random rand = new Random();
+        for (int i = 0; i < 20; i++) {
+            int r = rand.nextInt();
+            assertArrayEquals(new int[]{r, r}, MinMax.minMax(new int[]{r}));
+        }
+    }
+
+    //    ----------------------- SEPARATOR -----------------------
+
+    @Test
+    @DisplayName("OddOrEven - oddOrEven")
+    public void exampleTest() {
+        assertEquals("odd", OddOrEven.oddOrEven(new int[]{2, 5, 34, 6}));
+    }
+
+    //    ----------------------- SEPARATOR -----------------------
+
+    @Test
+    @DisplayName("AnagramDetection - isAnagram")
+    void sampleTests() {
+        doisAnagramTest("", "", true);
+        doisAnagramTest("ab", "cdcd", false);
+        doisAnagramTest("ac", "bb", false);
+        doisAnagramTest("aab", "abb", false);
+        doisAnagramTest("a", "aaa", false);
+        doisAnagramTest("foefet", "toffee", true);
+        doisAnagramTest("Buckethead", "DeathCubeK", true);
+        doisAnagramTest("Twoo", "Woot", true);
+        doisAnagramTest("dumble", "bumble", false);
+        doisAnagramTest("ound", "round", false);
+        doisAnagramTest("apple", "pale", false);
+    }
+
+    public void doisAnagramTest(String a, String b, boolean expected) {
+        String message = String.format("a = \"%s\"\nb = \"%s\"\n", a, b);
+        boolean actual = AnagramDetection.isAnagram(a, b);
+        assertEquals(expected, actual, message);
+    }
+
+//    ----------------------- SEPARATOR -----------------------
 
 }

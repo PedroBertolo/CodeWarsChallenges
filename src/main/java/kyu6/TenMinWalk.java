@@ -14,16 +14,16 @@ public class TenMinWalk {
         for (char c : walk) {
             switch (c) {
                 case 'n':
-                    yPosition = yPosition + 1;
+                    yPosition++;
                     break;
                 case 's':
-                    yPosition = yPosition - 1;
+                    yPosition--;
                     break;
                 case 'e':
-                    xPosition = xPosition + 1;
+                    xPosition++;
                     break;
                 case 'w':
-                    xPosition = xPosition - 1;
+                    xPosition--;
                     break;
                 default:
                     System.out.println("Skipping, doesn't move...");

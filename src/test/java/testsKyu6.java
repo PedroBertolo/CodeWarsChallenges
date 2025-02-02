@@ -8,6 +8,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
@@ -227,5 +229,95 @@ public class testsKyu6 {
         int num2 = numbers[actual[1]];
         assertEquals(target, num1 + num2, String.format("Numbers %d, %d at positions %d, %d do not add up to target", num1, num2, actual[0], actual[1]));
     }
+
+    //    ----------------------- SEPARATOR -----------------------
+
+    @Test
+    @DisplayName("FileNameExtractor - extractFileName")
+    public void testSample() {
+        assertEquals(
+                "FILE_NAME.EXTENSION",
+                FileNameExtractor.extractFileName("1231231223123131_FILE_NAME.EXTENSION.OTHEREXTENSION")
+        );
+        assertEquals(
+                "FILE_NAME.EXTENSION",
+                FileNameExtractor.extractFileName("1_FILE_NAME.EXTENSION.OTHEREXTENSIONadasdassdassds34")
+        );
+    }
+
+    //    ----------------------- SEPARATOR -----------------------
+
+//    @Test
+//    @DisplayName("Mexican Wave - wave")
+//    public void basicTest1() {
+//        mexicanWaveBasicTest1();
+////        mexicanWaveBasicTest2();
+////        mexicanWaveBasicTest3();
+////        mexicanWaveBasicTest4();
+////        mexicanWaveBasicTest5();
+//    }
+//
+//    @Test
+//    public void mexicanWaveBasicTest1() {
+//        String[] result = new String[]{"Hello", "hEllo", "heLlo", "helLo", "hellO"};
+//        assertTrue(Arrays.equals(MexicanWave.wave("hello"), result));
+//
+////        assertArrayEquals( Arrays.toString(result) , result, MexicanWave.wave("hello"));
+//    }
+//
+////    @Test
+////    public void mexicanWaveBasicTest2() {
+////        String[] result = new String[]{"Codewars", "cOdewars", "coDewars", "codEwars", "codeWars", "codewArs", "codewaRs", "codewarS"};
+////        assertArrayEquals("it should return '" + Arrays.toString(result) + "'", result, MexicanWave.wave("codewars"));
+////    }
+////
+//    @Test
+//    public void mexicanWaveBasicTest3() {
+//        String[] result = new String[]{};
+//        assertTrue(Arrays.equals(MexicanWave.wave(""), result));
+//
+//    }
+////
+////    @Test
+////    public void mexicanWaveBasicTest4() {
+////        String[] result = new String[]{"Two words", "tWo words", "twO words", "two Words", "two wOrds", "two woRds", "two worDs", "two wordS"};
+////        a
+////
+////        assertArrayEquals("it should return '" + Arrays.toString(result) + "'", result, MexicanWave.wave("two words"));
+//
+////    }
+////
+////    @Test
+////    public void mexicanWaveBasicTest5() {
+////        String[] result = new String[]{" Gap ", " gAp ", " gaP "};
+////        assertArrayEquals("it should return '" + Arrays.toString(result) + "'", result, MexicanWave.wave(" gap "));
+////    }
+
+//    ----------------------- SEPARATOR -----------------------
+
+    @Test
+    @DisplayName("YourOrderPlease - order")
+    public void testOrder() {
+        testOrder1();
+        testOrder2();
+        testOrder3();
+    }
+
+    @Test
+    public void testOrder1() {
+        assertThat(YourOrderPlease.order("is2 Thi1s T4est 3a"), equalTo("Thi1s is2 3a T4est"));
+    }
+
+    @Test
+    public void testOrder2() {
+        assertThat(YourOrderPlease.order("4of Fo1r pe6ople g3ood th5e the2"), equalTo("Fo1r the2 g3ood 4of th5e pe6ople"));
+    }
+
+    @Test
+    public void testOrder3() {
+        assertThat("Empty input should return empty string", YourOrderPlease.order(""), equalTo(""));
+    }
+
+//    ----------------------- SEPARATOR -----------------------
 
 }
