@@ -7,7 +7,7 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class testsKyu7 {
+public class TestsKyu7 {
 
     @Test
     @DisplayName("HighestAndLowest - highAndLow")
@@ -164,5 +164,23 @@ public class testsKyu7 {
     }
 
 //    ----------------------- SEPARATOR -----------------------
+
+    @Test
+    @DisplayName("ReversingFun - funReverse")
+    void reversingFunTests() {
+        doReversingFunTests("0", "0");
+        doReversingFunTests("", "");
+        doReversingFunTests("012", "201");
+        doReversingFunTests("012345", "504132");
+        doReversingFunTests("0123456789", "9081726354");
+        doReversingFunTests("Hello", "oHlel");
+        doReversingFunTests("4ppso1vdjc9rjyf5bkmd5nztr8", "84rptpzsno51dvmdkjbc59fryj");
+    }
+
+    private static void doReversingFunTests(String input, String expected) {
+        String message = String.format("for input \"%s\"\n", input);
+        String actual = ReversingFun.funReverse(input);
+        assertEquals(expected, actual, message);
+    }
 
 }
