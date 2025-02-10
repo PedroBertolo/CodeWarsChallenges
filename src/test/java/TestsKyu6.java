@@ -247,51 +247,46 @@ public class TestsKyu6 {
 
     //    ----------------------- SEPARATOR -----------------------
 
-//    @Test
-//    @DisplayName("Mexican Wave - wave")
-//    public void basicTest1() {
-//        mexicanWaveBasicTest1();
-////        mexicanWaveBasicTest2();
-////        mexicanWaveBasicTest3();
-////        mexicanWaveBasicTest4();
-////        mexicanWaveBasicTest5();
-//    }
-//
-//    @Test
-//    public void mexicanWaveBasicTest1() {
-//        String[] result = new String[]{"Hello", "hEllo", "heLlo", "helLo", "hellO"};
-//        assertTrue(Arrays.equals(MexicanWave.wave("hello"), result));
-//
-////        assertArrayEquals( Arrays.toString(result) , result, MexicanWave.wave("hello"));
-//    }
-//
-////    @Test
-////    public void mexicanWaveBasicTest2() {
-////        String[] result = new String[]{"Codewars", "cOdewars", "coDewars", "codEwars", "codeWars", "codewArs", "codewaRs", "codewarS"};
-////        assertArrayEquals("it should return '" + Arrays.toString(result) + "'", result, MexicanWave.wave("codewars"));
-////    }
-////
-//    @Test
-//    public void mexicanWaveBasicTest3() {
-//        String[] result = new String[]{};
-//        assertTrue(Arrays.equals(MexicanWave.wave(""), result));
-//
-//    }
-////
-////    @Test
-////    public void mexicanWaveBasicTest4() {
-////        String[] result = new String[]{"Two words", "tWo words", "twO words", "two Words", "two wOrds", "two woRds", "two worDs", "two wordS"};
-////        a
-////
-////        assertArrayEquals("it should return '" + Arrays.toString(result) + "'", result, MexicanWave.wave("two words"));
-//
-////    }
-////
-////    @Test
-////    public void mexicanWaveBasicTest5() {
-////        String[] result = new String[]{" Gap ", " gAp ", " gaP "};
-////        assertArrayEquals("it should return '" + Arrays.toString(result) + "'", result, MexicanWave.wave(" gap "));
-////    }
+    @Test
+    @DisplayName("Mexican Wave - wave")
+    public void basicTest1() {
+        mexicanWaveBasicTest1();
+        mexicanWaveBasicTest2();
+        mexicanWaveBasicTest3();
+        mexicanWaveBasicTest4();
+        mexicanWaveBasicTest5();
+    }
+
+    @Test
+    public void mexicanWaveBasicTest1() {
+        String[] result = new String[]{"Hello", "hEllo", "heLlo", "helLo", "hellO"};
+        assertTrue(Arrays.equals(MexicanWave.wave("hello"), result));
+    }
+
+    @Test
+    public void mexicanWaveBasicTest2() {
+        String[] result = new String[]{"Codewars", "cOdewars", "coDewars", "codEwars", "codeWars", "codewArs", "codewaRs", "codewarS"};
+        assertTrue(Arrays.equals(MexicanWave.wave("codewars"), result));
+    }
+
+    @Test
+    public void mexicanWaveBasicTest3() {
+        String[] result = new String[]{};
+        assertTrue(Arrays.equals(MexicanWave.wave(""), result));
+
+    }
+
+    @Test
+    public void mexicanWaveBasicTest4() {
+        String[] result = new String[]{"Two words", "tWo words", "twO words", "two Words", "two wOrds", "two woRds", "two worDs", "two wordS"};
+        assertTrue(Arrays.equals(MexicanWave.wave("two words"), result));
+    }
+
+    @Test
+    public void mexicanWaveBasicTest5() {
+        String[] result = new String[]{" Gap ", " gAp ", " gaP "};
+        assertTrue(Arrays.equals(MexicanWave.wave(" gap "), result));
+    }
 
 //    ----------------------- SEPARATOR -----------------------
 
@@ -341,5 +336,17 @@ public class TestsKyu6 {
     }
 
     //    ----------------------- SEPARATOR -----------------------
+
+
+    @Test
+    @DisplayName("WhoLikesIt - whoLikesIt")
+        public void testswhoLikesIt() {
+            assertEquals("no one likes this", WhoLikesIt.whoLikesIt());
+            assertEquals("Peter likes this", WhoLikesIt.whoLikesIt("Peter"));
+            assertEquals("Jacob and Alex like this", WhoLikesIt.whoLikesIt("Jacob", "Alex"));
+            assertEquals("Max, John and Mark like this", WhoLikesIt.whoLikesIt("Max", "John", "Mark"));
+            assertEquals("Alex, Jacob and 2 others like this", WhoLikesIt.whoLikesIt("Alex", "Jacob", "Mark", "Max"));
+        }
+
 
 }
