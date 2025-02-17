@@ -1,40 +1,51 @@
 package kyu6;
 
+//https://www.codewars.com/kata/576757b1df89ecf5bd00073b/train/java
 
-/* Build a pyramid-shaped tower,as an array/list of strings,given a positive integer number of floors.A tower block is represented with"*"character.
+//import com.sun.tools.javac.util.StringUtils;
 
-   For example,a tower with 3 floors looks like this:
-        [
-        "  *  ",
-        " *** ",
-        "*****"
-        ]
-   And a tower with 6 floors looks like this:
-
-        [
-        "     *     ",
-        "    ***    ",
-        "   *****   ",
-        "  *******  ",
-        " ********* ",
-        "***********"
-        ]
-*/
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class BuildTower {
 
-    //fixme
-    public static List<String> towerBuilder(int nFloors) {
+    public static final String ASTERISK = "*";
+    public static final String EMPTY_SPACE = " ";
+
+    public static String[] towerBuilder(int nFloors) {
         List<String> listOfFloors = new ArrayList<>();
 
-        int middleNumber = nFloors % 2 == 0 ? nFloors / 2 : nFloors / 2 + 1;
+        int numberOfAsterisks = (nFloors * 2) - 1;
+        int numberOfEmptySpaces = 0;
 
-        listOfFloors.add("*");
+        while (numberOfAsterisks >= 1) {
+            StringBuilder stringBuilder = new StringBuilder();
+//            spaces before
+            if (numberOfEmptySpaces > 0) {
+                for (int i = 0; i < numberOfEmptySpaces / 2; i++) {
+                    stringBuilder.append(EMPTY_SPACE);
+                }
+            }
+//            asterisks
+            for (int i = 0; i < numberOfAsterisks; i++) {
+                stringBuilder.append(ASTERISK);
+            }
+//            spaces after
+            if (numberOfEmptySpaces > 0) {
+                for (int i = 0; i < numberOfEmptySpaces / 2; i++) {
+                    stringBuilder.append(EMPTY_SPACE);
+                }
+            }
 
+            listOfFloors.add(stringBuilder.toString());
+            numberOfAsterisks -= 2;
+            numberOfEmptySpaces += 2;
+        }
 
-        return listOfFloors;
+        Collections.reverse(listOfFloors);
+        return listOfFloors.toArray(new String[0]);
     }
 }

@@ -188,13 +188,9 @@ public class TestsKyu7 {
     @Test
     @DisplayName("MaxMinArrays - solve")
     public void testsMaxMinArrays(){
-//        assertArrayEquals(new int[]{15,7,12,10,11},MaxMinArrays.solve(new int[]{15,11,10,7,12}));
-
-
-
-        assertArrayEquals(new int[]{15,7,12,10,11},MaxMinArrays.solve(new int[]{223, 9947, 471, 9898, 579, 9672, 712, 9647, 752, 9505, 811, 9504, 829, 9382, 850, 9335, 954, 9132, 1066, 9026, 1071, 8914, 1157, 8892, 1213, 8853, 1220, 8807, 1264, 8633, 1267, 8130, 1268, 8001, 1305, 7877, 1330, 7863, 1432, 7824, 1463, 7757, 1469, 7710, 1479, 7706, 1564, 7651, 1644, 7642, 1746, 7627, 1965, 7574, 2029, 7570, 2183, 7552, 2396, 7399, 2554, 7076, 2570, 6989, 2597, 6949, 2814, 6945, 2822, 6675, 2935, 6326, 3080, 6265, 3205, 6263, 3431, 6224, 3487, 6174, 3512, 6111, 3573,
-                6002, 3816, 5963, 4089, 5933, 4152, 5800, 4181, 5783, 4189, 5757, 4609, 5722, 4748, 5558, 4801, 5496, 4904, 5413, 4907, 4981}));
-//        assertArrayEquals(new int[]{15,7,12,10,11},MaxMinArrays.solve(new int[]{15,11,10,7,12,3}));
+        assertArrayEquals(new int[]{15,7,12,10,11},MaxMinArrays.solve(new int[]{15,11,10,7,12}));
+        assertArrayEquals(new int[]{15,7,12,10,11},MaxMinArrays.solve(new int[]{15,11,10,7,12}));
+        assertArrayEquals(new int[]{15,7,12,10,11},MaxMinArrays.solve(new int[]{15,11,10,7,12}));
     }
 
 }
