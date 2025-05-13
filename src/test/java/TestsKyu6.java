@@ -392,9 +392,40 @@ public class TestsKyu6 {
     @Test
     @DisplayName("SpinWords - spinWords")
     public void spinWordsTest() {
-//        assertEquals("emocleW", new SpinWords().spinWords("Welcome"));
-//        assertEquals("Hey wollef sroirraw", new SpinWords().spinWords("Hey fellow warriors"));
+        assertEquals("emocleW", new SpinWords().spinWords("Welcome"));
+        assertEquals("Hey wollef sroirraw", new SpinWords().spinWords("Hey fellow warriors"));
         assertEquals("Just gniddik [ereht is llits] one more", new SpinWords().spinWords("Just kidding [there is still] one more"));
+    }
+
+    //    ----------------------- SEPARATOR -----------------------
+
+    @DisplayName("FindOdd - findIt")
+    private static void findItTest(int[] input, int expected) {
+        String message = String.format("for array = %s\n", Arrays.toString(input));
+        int actual = FindOdd.findIt(input);
+        assertEquals(expected, actual, message);
+    }
+
+    @Test
+    public void findOddSampleTests() {
+        findItTest(new int[]{20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5}, 5);
+        findItTest(new int[]{1, 1, 2, -2, 5, 2, 4, 4, -1, -2, 5}, -1);
+        findItTest(new int[]{20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5}, 5);
+        findItTest(new int[]{10}, 10);
+        findItTest(new int[]{1, 1, 1, 1, 1, 1, 10, 1, 1, 1, 1}, 10);
+        findItTest(new int[]{5, 4, 3, 2, 1, 5, 4, 3, 2, 10, 10}, 1);
+    }
+
+    //    ----------------------- SEPARATOR -----------------------
+
+    @Test
+    @DisplayName("ArrayDiff - arrayDiff")
+    public void arrayDiffTests() {
+        assertArrayEquals(new int[] {2}, ArrayDiff.arrayDiff(new int [] {1,2}, new int[] {1}));
+        assertArrayEquals(new int[] {2,2}, ArrayDiff.arrayDiff(new int [] {1,2,2}, new int[] {1}));
+        assertArrayEquals(new int[] {1}, ArrayDiff.arrayDiff(new int [] {1,2,2}, new int[] {2}));
+        assertArrayEquals(new int[] {1,2,2}, ArrayDiff.arrayDiff(new int [] {1,2,2}, new int[] {}));
+        assertArrayEquals(new int[] {}, ArrayDiff.arrayDiff(new int [] {}, new int[] {1,2}));
     }
 
 }
