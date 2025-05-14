@@ -421,11 +421,38 @@ public class TestsKyu6 {
     @Test
     @DisplayName("ArrayDiff - arrayDiff")
     public void arrayDiffTests() {
-        assertArrayEquals(new int[] {2}, ArrayDiff.arrayDiff(new int [] {1,2}, new int[] {1}));
-        assertArrayEquals(new int[] {2,2}, ArrayDiff.arrayDiff(new int [] {1,2,2}, new int[] {1}));
-        assertArrayEquals(new int[] {1}, ArrayDiff.arrayDiff(new int [] {1,2,2}, new int[] {2}));
-        assertArrayEquals(new int[] {1,2,2}, ArrayDiff.arrayDiff(new int [] {1,2,2}, new int[] {}));
-        assertArrayEquals(new int[] {}, ArrayDiff.arrayDiff(new int [] {}, new int[] {1,2}));
+        assertArrayEquals(new int[]{2}, ArrayDiff.arrayDiff(new int[]{1, 2}, new int[]{1}));
+        assertArrayEquals(new int[]{2, 2}, ArrayDiff.arrayDiff(new int[]{1, 2, 2}, new int[]{1}));
+        assertArrayEquals(new int[]{1}, ArrayDiff.arrayDiff(new int[]{1, 2, 2}, new int[]{2}));
+        assertArrayEquals(new int[]{1, 2, 2}, ArrayDiff.arrayDiff(new int[]{1, 2, 2}, new int[]{}));
+        assertArrayEquals(new int[]{}, ArrayDiff.arrayDiff(new int[]{}, new int[]{1, 2}));
     }
+
+//    ----------------------- SEPARATOR -----------------------
+
+    @Test
+    @DisplayName("StringToCamelCase - toCamelCase")
+    public void testSomeUnderscoreLowerStart() {
+        String input = "the_Stealth_Warrior";
+        System.out.println("input: " + input);
+        assertEquals("theStealthWarrior", StringToCamelCase.toCamelCase(input));
+
+        String input2 = "the-Stealth-Warrior";
+        System.out.println("input: " + input2);
+        assertEquals("theStealthWarrior", StringToCamelCase.toCamelCase(input2));
+    }
+
+    //    ----------------------- SEPARATOR -----------------------
+
+
+    @Test
+    public void deleteNth() throws Exception {
+        assertArrayEquals(new int[]{20, 37, 21}, EnoughIsEnough.deleteNth(new int[]{20, 37, 20, 21}, 1));
+        assertArrayEquals(new int[]{1, 1, 3, 3, 7, 2, 2, 2}, EnoughIsEnough.deleteNth(new int[]{1, 1, 3, 3, 7, 2, 2, 2, 2}, 3));
+        assertArrayEquals(new int[]{1, 2, 3, 1, 1, 2, 2, 3, 3, 4, 5}, EnoughIsEnough.deleteNth(new int[]{1, 2, 3, 1, 1, 2, 1, 2, 3, 3, 2, 4, 5, 3, 1}, 3));
+        assertArrayEquals(new int[]{1, 1, 1, 1, 1}, EnoughIsEnough.deleteNth(new int[]{1, 1, 1, 1, 1}, 5));
+        assertArrayEquals(new int[]{}, EnoughIsEnough.deleteNth(new int[]{}, 5));
+    }
+
 
 }
