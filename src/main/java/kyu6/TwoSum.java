@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class TwoSum {
 
     public static int[] twoSum(int[] numbers, int target) {
-        // Solution 1: Big O Notation ->  O(n2)
+        // Solution 1: Big O_LOWERCASE Notation ->  O_LOWERCASE(n2)
 
 //        int[] pairToReturn = null;
 //        boolean pairFound = false;
@@ -26,7 +26,7 @@ public class TwoSum {
 
 //        --------------------------------------------------------
 
-        // Solution 2: Big O Notation ->  O(n) + O(n)
+        // Solution 2: Big O_LOWERCASE Notation ->  O_LOWERCASE(n) + O_LOWERCASE(n)
 //        int[] pairToReturn = null;
 //        HashMap<Integer, Integer> map = new HashMap<>();
 //
@@ -46,7 +46,7 @@ public class TwoSum {
 
         //        --------------------------------------------------------
 
-        // Solution 3: Big O Notation ->  O(n)
+        // Solution 3: Big O_LOWERCASE Notation ->  O_LOWERCASE(n)
         int[] pairToReturn = null;
         HashMap<Integer, Integer> map = new HashMap<>();
 

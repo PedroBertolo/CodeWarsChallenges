@@ -1,6 +1,8 @@
 import kyu7.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -187,10 +189,69 @@ public class TestsKyu7 {
 
     @Test
     @DisplayName("MaxMinArrays - solve")
-    public void testsMaxMinArrays(){
-        assertArrayEquals(new int[]{15,7,12,10,11},MaxMinArrays.solve(new int[]{15,11,10,7,12}));
-        assertArrayEquals(new int[]{15,7,12,10,11},MaxMinArrays.solve(new int[]{15,11,10,7,12}));
-        assertArrayEquals(new int[]{15,7,12,10,11},MaxMinArrays.solve(new int[]{15,11,10,7,12}));
+    public void testsMaxMinArrays() {
+        assertArrayEquals(new int[]{15, 7, 12, 10, 11}, MaxMinArrays.solve(new int[]{15, 11, 10, 7, 12}));
+        assertArrayEquals(new int[]{15, 7, 12, 10, 11}, MaxMinArrays.solve(new int[]{15, 11, 10, 7, 12}));
+        assertArrayEquals(new int[]{15, 7, 12, 10, 11}, MaxMinArrays.solve(new int[]{15, 11, 10, 7, 12}));
+    }
+
+    //    ----------------------- SEPARATOR -----------------------
+
+    @Test
+    @DisplayName("ShortestWord - findShort")
+    void findShort() {
+        assertEquals(3, ShortestWord.findShort("bitcoin take over the world maybe who knows perhaps"));
+        assertEquals(3, ShortestWord.findShort("turns out random test cases are easier than writing out basic ones"));
+        assertEquals(2, ShortestWord.findShort("Let's travel abroad shall we"));
+    }
+
+    //    ----------------------- SEPARATOR -----------------------
+
+    @Test
+    @DisplayName("GetMiddle - getMiddle")
+    public void evenTests() {
+        assertEquals("es", GetMiddle.getMiddle("test"));
+        assertEquals("dd", GetMiddle.getMiddle("middle"));
+    }
+
+    @Test
+    @DisplayName("GetMiddle - getMiddle")
+    public void oddTests() {
+        assertEquals("t", GetMiddle.getMiddle("testing"));
+        assertEquals("A", GetMiddle.getMiddle("A"));
+    }
+
+    //    ----------------------- SEPARATOR -----------------------
+
+    @Test
+    @DisplayName("DescendingOrder - sortDesc")
+    public void test_01() {
+        assertEquals(0, DescendingOrder.sortDesc(0));
+        assertEquals(51, DescendingOrder.sortDesc(15));
+        assertEquals(987654321, DescendingOrder.sortDesc(123456789));
+    }
+
+    //    ----------------------- SEPARATOR -----------------------
+
+    @Test
+    @DisplayName("XO - getXO")
+    public void sampleTestsXO() {
+        assertEquals(true, XO.getXO("ooxx"));
+        assertEquals(false, XO.getXO("xooxx"));
+        assertEquals(true, XO.getXO("ooxXm"));
+        assertEquals(true, XO.getXO("zpzpzpp"));
+        assertEquals(false, XO.getXO("zzoo"));
+        assertEquals(true, XO.getXO("xxxooo"));
+        assertEquals(true, XO.getXO("xxxXooOo"));
+        assertEquals(false, XO.getXO("xxx23424esdsfvxXXOOooo"));
+        assertEquals(false, XO.getXO("xXxxoewrcoOoo"));
+        assertEquals(false, XO.getXO("XxxxooO"));
+        assertEquals(true, XO.getXO("zssddd"));
+        assertEquals(false, XO.getXO("Xxxxertr34"));
+        assertEquals(true, XO.getXO(""));
     }
 
 }
+
+
+

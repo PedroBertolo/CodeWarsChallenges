@@ -7,7 +7,7 @@ The array will always contain letters in only one case.
 
 Example:
 ['a','b','c','d','f'] -> 'e'
-['O','Q','R','S'] -> 'P'
+['O_LOWERCASE','Q','R','S'] -> 'P'
 (Use the English alphabet with 26 letters!)
 */
 
